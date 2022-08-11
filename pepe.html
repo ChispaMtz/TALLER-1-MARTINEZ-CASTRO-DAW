@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC>
+<html>
+    <head>
+        <title>Almacén de venta de ropa</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <script>
+ 
+function algoritmo()
+{
+    let descuento, descuento1, descuento2, descuento3, total, venta;
+    descuento1 = Math.round(Math.random() * (0.100-0.80) + 0 );
+    descuento2 = Math.round(Math.random() * (0.80-0.60) + 0 );
+    descuento3 = Math.round(Math.random() * (0.60-0.00) + 0 );
+    venta = parseFloat (document.formulario1.venta.value);
+    if(venta < 20){
+        descuento=venta*descuento1;
+    }else if(venta >=21 && venta <= 100){
+        descuento=venta*descuento2;
+    }else  if(venta> 100){
+        descuento=venta*descuento3;
+    }
+    total=venta-descuento;
+    document.formulario1.descuento.value = descuento;
+    document.formulario1.total.value = total;
+}
+ 
+        </script>
+    </head>
+    <body>
+        <form name="formulario1">
+            <table style="text-align: left; margin-left: auto; margin-right: auto;">
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="venta">Ingresa el valor de venta:</label>
+                        </td>
+                        <td>
+                            <input name="venta" required="required" step="0.000001" type="number" />
+                        </td>
+                    </tr>
+                    <tr align="center">
+                        <td colspan="2" rowspan="1">
+                            <input value="Procesar" type="button" onclick="algoritmo();" />
+                            <input type="reset" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="descuento">Valor de descuento:</label>
+                        </td>
+                        <td>
+                            <input name="descuento" step="0.000001" type="number" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="total">Valor de total:</label>
+                        </td>
+                        <td>
+                            <input name="total" step="0.000001" type="number" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </body>
+</html>
